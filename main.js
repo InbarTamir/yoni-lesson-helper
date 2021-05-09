@@ -20,13 +20,13 @@ function initTable() {
     const dateStr = new Date(currLesson.date).toLocaleString('he')
     strHTML += `    
       <div class="row">
-        <div class="cell lesson-num" data-title="lessonNum">${currLesson.id}</div>
-        <div class="cell date">${dateStr.substring(0, dateStr.indexOf(',')).replace(/\./g, '/')}</div>
-        <div class="cell subject">${currLesson.subjects.map(({ title, desc }) => `<span>${title}</span>- ${desc}<br>`).join('')}</div>
-        <div class="cell link"><a class="text-green" href="${currLesson.link.url}">וידאו שיעור ${currLesson.id}</a></div>
-        <div class="cell file"><a class="text-orange" href="${currLesson.file.url}">מחברת שיעור ${currLesson.id}</a></div>
-        <div class="cell homework"><a class="text-blue" href="${currLesson.homework.url}">שיעור בית ${currLesson.id}</a></div>
-        <div class="cell appendix"></div>
+        <div class="cell lesson-num" data-title="שיעור מס\'">${currLesson.id}</div>
+        <div class="cell date" data-title="תאריך">${dateStr.substring(0, dateStr.indexOf(',')).replace(/\./g, '/')}</div>
+        <div class="cell subject" data-title="נושא">${currLesson.subjects.map(({ title, desc }) => `<span>${title}</span>- ${desc}<br>`).join('')}</div>
+        <div class="cell link" data-title="קישור"><a class="text-green" href="${currLesson.link.url}">וידאו שיעור ${currLesson.id}</a></div>
+        <div class="cell file" data-title="קובץ"><a class="text-orange" href="${currLesson.file.url}">מחברת שיעור ${currLesson.id}</a></div>
+        <div class="cell homework" data-title="ש\"ב"><a class="text-blue" href="${currLesson.homework.url}">שיעורי בית ${currLesson.id}</a></div>
+        <div class="cell appendix" data-title="נספחים"></div>
       </div>`
   }
 
