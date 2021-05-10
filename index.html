@@ -9,11 +9,74 @@
 </head>
 
 <body onload="init()">
+  <div class="add-lesson-modal hide">
+    <form onsubmit="onSubmitLesson(event)" dir="rtl">
+      <h2>הוספת שיעור</h2>
+      <label>
+        שיעור מס':
+        <input type="number" class="lesson-num-input" min="0" required />
+      </label>
+      <label>
+        תאריך:
+        <input type="date" class="date-input" required />
+      </label>
+      <br>
+      <div class="subjects">
+        <p> נושאי השיעור:
+          מספור לדוגמא 1),2)</p>
+        <label class="flex">
+          <input type="text" class="subject-title-input" />
+          תיאור:
+          <textarea class="subject-desc-input" cols="40" rows="1"></textarea>
+        </label>
+        <label class="flex">
+          <input type="text" class="subject-title-input" />
+          תיאור:
+          <textarea class="subject-desc-input" cols="40" rows="1"></textarea>
+        </label>
+      </div>
+      <button type="button" class="btn-add-subject-input" onclick="onAddSubjectInput()"><img
+          src="plus2-icon.png" /></button>
+      <h3>קישורים:</h3>
+      <label class="flex">
+        וידאו שיעור:
+        <input type="text" class="lesson-input" />
+      </label>
+      <label class="flex">
+        מחברת שיעור:
+        <input type="text" class="notebook-input" />
+      </label>
+      <label class="flex">
+        שיעורי בית:
+        <input type="text" class="homework-input" />
+      </label>
+      <div class="btns">
+        <button class="btn btn-submit">אישור</button>
+        <button type="button" class="btn btn-cancel" onclick="onToggleLessonModal()">ביטול</button>
+      </div>
+    </form>
+  </div>
   <div class="lessons table" dir="rtl"></div>
+  <button class="btn-add-lesson" onclick="onToggleLessonModal()"><img src="plus-icon.png" /></button>
 
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDpnuorftspSo-WkeH6SsScG2ixU3Ip6p0",
+      authDomain: "yoni-lesson-helper.firebaseapp.com",
+      projectId: "yoni-lesson-helper",
+      storageBucket: "yoni-lesson-helper.appspot.com",
+      messagingSenderId: "111813710528",
+      appId: "1:111813710528:web:169e746fea75dd5043d325"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="db-service.js"></script>
   <script src="lesson-service.js"></script>
   <script src="main.js"></script>
-
 </body>
 
 </html>
