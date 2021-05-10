@@ -22,7 +22,9 @@ function initTable() {
     const subjects = currLesson.subjects.filter(({ title, desc }) => title || desc)
     strHTML += `    
       <div class="row">
-        <div class="cell lesson-num" data-title="שיעור מס\'">${currLesson.lessonNum}</div>
+        <div class="cell lesson-num" data-title="שיעור מס\'">
+        <button class="btn-delete" onclick="onRemoveLesson('${currLesson._id}')">x</button>
+        ${currLesson.lessonNum}</div>
         <div class="cell date" data-title="תאריך">${dateStr.substring(0, dateStr.indexOf(',')).replace(/\./g, '/')}</div>
         <div class="cell subject" data-title="נושא">${subjects.map(({ title, desc }) => `<span>${title}</span>- ${desc}<br>`).join('')}</div>
         <div class="cell link" data-title="קישור">${currLesson.links.lesson && `<a class="text-green" href="${currLesson.links.lesson}">וידאו שיעור ${currLesson.lessonNum}</a>`}</div>
@@ -74,4 +76,10 @@ function onAddSubjectInput() {
       תיאור:
       <textarea class="subject-desc-input" cols="40" rows="1"></textarea>
     </label>`
+}
+
+async function onRemoveLesson(id) {
+  // console.log(id)
+  await removeLesson(id)
+  initTable()
 }

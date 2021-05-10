@@ -58,6 +58,7 @@ a:visited {}
   padding: 6px 12px;
   display: table-cell;
   vertical-align: middle;
+  position: relative;
 }
 
 .cell.lesson-num {
@@ -173,6 +174,13 @@ a:visited {}
 
 .btn {
   margin-inline: 5px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
   cursor: pointer;
 }
 
