@@ -70,16 +70,13 @@ function onToggleLessonModal() {
 
 function onAddSubjectInput() {
   const elSubjects = document.querySelector('.subjects')
-  elSubjects.innerHTML += `
-    <label class="flex">
-      <input type="text" class="subject-title-input" />
-      תיאור:
-      <textarea class="subject-desc-input" cols="40" rows="1"></textarea>
-    </label>`
+  const elLabel = document.createElement('label')
+  elLabel.classList.add('flex')
+  elLabel.innerHTML = '<input type="text" class="subject-title-input" />תיאור:<textarea class="subject-desc-input" cols="40" rows="1"></textarea>'
+  elSubjects.append(elLabel)
 }
 
 async function onRemoveLesson(id) {
-  // console.log(id)
   await removeLesson(id)
   initTable()
 }
