@@ -1,7 +1,7 @@
 const db = firebase.firestore()
 const collection = db.collection('lesson')
-initializeLessons()
-function initializeLessons() {
+async function initializeLessons() {
+  await collection.get().then(res => res.forEach(doc => collection.doc(doc.id).delete()))
   const lessonss = [
     {
       id: 1,
